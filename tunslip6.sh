@@ -7,10 +7,12 @@ echo 1 > /proc/sys/net/ipv6/conf/eth0/accept_ra
 # get panid from uboot
   panid="abcd"
 # get lowpanprefix from uboot
-  lowpanprefix="aaaa::"
+  lowpanprefix="fdaa:e9b8:d03a::"
 # start daemon
 #tunslip6 -B 115200 -L -v3 -s ttyFIM0 aaaa::1/64 &
-/usr/sbin/tunslip6 -B 38400 -L -v3 -s ttyAMA0 ${lowpanprefix}1/64 &
+#/usr/sbin/tunslip6 -B 38400 -L -v3 -s ttyAMA0 ${lowpanprefix}1/64 &
+/usr/sbin/tunslip6 -B 38400 -L -v3 -s ttyUSB0 ${lowpanprefix}1/64 &
+
 sleep 10
 ifconfig tun0 inet  up
 #ifconfig tun0 fe80::1/64
